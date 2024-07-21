@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: rng
+  name: rng
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: rng
+      enabled: "yes"
+  template:
+    metadata:
+      labels:
+        app: rng
+        enabled: "yes"
+    spec:
+      containers:
+      - name: rng
+        image: dockercoins/rng:v0.1
+
